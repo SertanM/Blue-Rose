@@ -1,0 +1,23 @@
+#ls{position:absolute;left:0;top:0;width:1px;height:1px;overflow:visible;pointer-events:none}
+#ls .hit{stroke:transparent;stroke-width:14;fill:none;pointer-events:stroke;cursor:pointer}
+#ls .ln{stroke:var(--mu);stroke-width:2;fill:none}
+#ls{z-index:5001}   /* grupların (z 1–5000) üstünde, kartların (z 10000+) altında: grup içindeki oklar tıklanabilsin */
+#ls .hit{cursor:move}
+#ls .hd{fill:transparent;stroke:none;pointer-events:all;cursor:crosshair}
+#ls .arw:is(:hover,.act) .hd{stroke:currentColor;stroke-width:2}
+#ls .tl{fill:var(--mu);pointer-events:none;opacity:0}#ls .tl.on{fill:currentColor}
+#ls .arw:is(:hover,.act) .tl{opacity:1}
+#ls .bd{fill:var(--panel);stroke:currentColor;stroke-width:2;opacity:0;cursor:grab;pointer-events:all}
+#ls .arw:is(:hover,.act) .bd{opacity:1}
+#ls .del{opacity:0;cursor:pointer;pointer-events:all}
+#ls .del circle{fill:var(--panel);stroke:var(--line)}
+#ls .del path{stroke:var(--tx);stroke-width:1.6;fill:none}
+#ls .arw:is(:hover,.act) .del{opacity:1}
+#ls .tp{fill:none;stroke:none}
+#ls .alab,#ls .alabh{font-weight:700;text-anchor:middle;dominant-baseline:central;user-select:none}
+#ls .alab{stroke:none;pointer-events:all;cursor:move}
+#ls .alabh{fill:none;stroke:var(--bg);stroke-linejoin:round;pointer-events:none}
+#ls .del:hover circle{fill:#e0556b;stroke:#e0556b}
+#ls .del:hover path{stroke:#fff}
+#ls .arw.sel .ln,#ls .arw.sel .hh,#ls .arw.sel .alab{filter:drop-shadow(0 0 3px currentColor)}   /* okun kendi renginde */
+#ls.dr *{pointer-events:none!important}

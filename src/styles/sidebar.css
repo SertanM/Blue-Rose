@@ -1,0 +1,33 @@
+#side{position:absolute;left:0;top:48px;bottom:0;width:60px;background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 0;z-index:5}
+#side .tool{width:42px;height:42px;padding:0;border:1px solid var(--line);border-radius:8px;display:grid;place-items:center;color:var(--tx);background:var(--bg);cursor:grab;touch-action:none;user-select:none}
+#side .tool.btn{cursor:pointer}
+#side .tool:hover{border-color:var(--ac);color:var(--ac)}
+#side .ln2{width:30px;height:1px;background:var(--line);margin:4px 0}
+#side .sp{flex:1}
+.tool svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+#side{gap:4px}
+#side .tool{width:60px;height:46px;border:0;border-radius:0;background:none}
+#side .tv{width:42px;height:42px;border:1px solid var(--line);border-radius:8px;background:var(--bg);display:grid;place-items:center;
+ transition:transform .22s cubic-bezier(.2,.8,.2,1),border-color .15s,box-shadow .22s}
+#side .tool:hover .tv{transform:translateX(11px) scale(1.08);border-color:var(--ac);box-shadow:0 5px 14px #0005}
+#side .tool:active .tv{transform:translateX(11px) scale(1.02)}
+#side .tool.btn:hover .tv{transform:scale(1.08)}
+#side .tool.btn:active .tv{transform:scale(1.02)}
+#side{display:block;padding:0;transition:width .22s cubic-bezier(.2,.8,.2,1)}
+#tools{position:absolute;left:0;top:0;bottom:0;width:60px;display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 0;transition:opacity .15s}
+#side.open #tools{opacity:0;visibility:hidden;pointer-events:none}
+#insp{position:absolute;left:0;top:0;bottom:0;width:60px;padding:10px 0;display:flex;flex-direction:column;align-items:center;overflow:visible;z-index:1;opacity:0;visibility:hidden;transition:opacity .15s,visibility 0s .15s}
+#side.open #insp{opacity:1;visibility:visible;transition:opacity .2s .08s}
+#insp{gap:8px}
+@keyframes fromRight{from{opacity:0;transform:translateX(46px)}to{opacity:1;transform:none}}
+#insp>*{animation:fromRight .45s cubic-bezier(.2,.9,.25,1.12) both}   /* gecikme her düğmeye Inspector.tsx içinde verilir */
+@media(prefers-reduced-motion:reduce){#insp>*{animation:none}}
+#bead{position:absolute;z-index:0;left:calc(100% - 1px);top:0;width:22px;height:72px;margin-top:-36px;pointer-events:none;opacity:0;transform:scaleX(.2);transform-origin:left center;
+ filter:drop-shadow(5px 0 7px rgba(0,0,0,.2));transition:top .28s cubic-bezier(.3,1.35,.5,1),transform .3s cubic-bezier(.34,1.56,.64,1),opacity .15s}
+#bead.on{opacity:1;transform:none}
+#bead svg{display:block;overflow:visible}
+#bead .bf{fill:var(--panel)}
+#bead .bl{fill:none;stroke:var(--line);stroke-width:1}
+#bead::before{top:-15px;background:radial-gradient(circle at 100% 0,transparent 13.5px,var(--line) 13.5px,var(--line) 14.5px,var(--panel) 14.5px)}
+#bead::after{bottom:-15px;background:radial-gradient(circle at 100% 100%,transparent 13.5px,var(--line) 13.5px,var(--line) 14.5px,var(--panel) 14.5px)}
+#tools{z-index:1}

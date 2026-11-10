@@ -1,0 +1,7 @@
+#canvas{position:absolute;inset:48px 0 0 60px;overflow:hidden;cursor:grab;touch-action:none;
+background-image:radial-gradient(var(--grid) 1.5px,transparent 1.5px);background-size:24px 24px}
+#world{position:absolute;left:0;top:0;transform-origin:0 0}
+.mq{position:absolute;border:1px solid var(--ac);background:rgba(232,162,58,.1);border-radius:3px;pointer-events:none;z-index:50}
+#ghost{position:fixed;z-index:50;pointer-events:none;opacity:.9;color:var(--mu);transform-origin:center}
+#ghost.no{opacity:.4;outline:2px solid #e0556b}
+#canvas.busy{pointer-events:none}

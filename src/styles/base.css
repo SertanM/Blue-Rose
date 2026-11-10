@@ -1,0 +1,7 @@
+:root{--bg:#1b1d22;--panel:#24272e;--line:#353a44;--tx:#e6e8ec;--mu:#8e95a3;--ac:#e8a23a;
+--grid:#2a2d35;font-family:"Segoe UI",system-ui,sans-serif}
+@media(prefers-color-scheme:light){:root{--bg:#f2efe9;--panel:#fff;--line:#d9d4c9;--tx:#22252b;--mu:#6b6f78;--grid:#e2ddd2}}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--tx);overflow:hidden}
+:root{--c1:#2e323a;--c2:#24272e}
+@media(prefers-color-scheme:light){:root{--c1:#fff;--c2:#f2eee5}}

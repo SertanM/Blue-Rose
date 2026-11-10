@@ -1,0 +1,56 @@
+.card{position:absolute;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--c);border-radius:6px;display:flex;flex-direction:column;box-shadow:0 2px 8px #0003}
+.bar{height:26px;flex:none;display:flex;align-items:center;gap:2px;padding:0 4px 0 8px;cursor:move;font-size:11px;color:var(--mu)}
+.bar span{flex:1}
+.bar button{border:0;background:none;color:var(--mu);cursor:pointer;font-size:13px;padding:2px 5px;border-radius:4px}
+.bar button:hover{color:var(--tx);background:var(--line)}
+.bar button[data-a=col]{color:var(--c)}
+.card.target{outline:2px solid var(--c)}
+.body{flex:1;min-height:0;display:flex}
+.body textarea{flex:1;width:100%;resize:none;border:0;background:transparent;color:var(--tx);font:inherit;font-size:14px;line-height:1.45;padding:2px 10px 10px;outline:none}
+.card.section .body textarea{font-weight:700;padding-top:0}
+.card.section{border-top-width:6px}
+.body img{width:100%;height:100%;object-fit:contain;display:block;pointer-events:none}
+.body .pick{margin:auto;border:1px dashed var(--line);background:none;color:var(--mu);padding:10px 14px;border-radius:6px;cursor:pointer}
+.rs{position:absolute;right:0;bottom:0;width:16px;height:16px;cursor:nwse-resize;background:linear-gradient(135deg,transparent 55%,var(--mu) 55% 62%,transparent 62% 76%,var(--mu) 76% 83%,transparent 83%);opacity:.6}
+.bar button[data-a=del]:hover{background:#e0556b;color:#fff}
+.card.ovl{outline:2px dashed var(--ac);opacity:.85}
+.card{--ring:0 0 0 0 transparent;cursor:grab;background:linear-gradient(180deg,var(--c1),var(--c2));
+ box-shadow:var(--ring),inset 0 1px 0 rgba(255,255,255,.08),0 1px 2px rgba(0,0,0,.35),0 6px 14px rgba(0,0,0,.25),0 16px 28px -10px rgba(0,0,0,.4);
+ transition:transform .2s cubic-bezier(.2,.8,.2,1),box-shadow .2s,border-color .15s}
+.card:not(.editing):not(.lift):hover{transform:translateY(-2px);
+ box-shadow:var(--ring),inset 0 1px 0 rgba(255,255,255,.1),0 2px 4px rgba(0,0,0,.35),0 10px 20px rgba(0,0,0,.28),0 24px 38px -10px rgba(0,0,0,.45)}
+.card.lift{cursor:grabbing;transform:perspective(900px) rotateX(3deg) translateY(-8px) scale(1.025);
+ box-shadow:var(--ring),inset 0 1px 0 rgba(255,255,255,.12),0 4px 8px rgba(0,0,0,.3),0 18px 32px rgba(0,0,0,.35),0 36px 50px -12px rgba(0,0,0,.5)}
+.card .bar{cursor:inherit}
+.card.sel{--ring:0 0 0 2px color-mix(in srgb,var(--c) 60%,transparent);border-color:var(--c)}   /* seçim ve yazma parıltısı kartın kendi renginde */
+.card.editing{--ring:0 0 0 3px color-mix(in srgb,var(--c) 45%,transparent),0 0 28px color-mix(in srgb,var(--c) 32%,transparent)}
+.body textarea{pointer-events:none;line-height:1.5;padding:4px 12px 12px;caret-color:var(--c)}
+.card.editing .body textarea{pointer-events:auto;cursor:text}
+.card.editing .body{background:color-mix(in srgb,var(--c) 7%,transparent);border-radius:0 0 6px 6px}
+.card.editing .bar span{color:var(--c)}
+.card.editing .bar span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--c);margin-right:6px;animation:blink 1.1s ease-in-out infinite}
+@keyframes blink{50%{opacity:.25}}
+@media(prefers-reduced-motion:reduce){.card.editing .bar span::before{animation:none}}
+.card{background:linear-gradient(180deg,color-mix(in srgb,var(--c) 16%,var(--c1)),color-mix(in srgb,var(--c) 8%,var(--c2)))}
+.card.note .bar,.card.group .bar{position:absolute;top:-10px;right:-10px;height:auto;padding:0;z-index:3;opacity:0;pointer-events:none;transition:opacity .15s}
+.card.note .bar span,.card.group .bar span{display:none}
+.card.note:hover .bar,.card.note.sel .bar,.card.group:hover .bar,.card.group.sel .bar{opacity:1;pointer-events:auto}
+.card.note .bar button,.card.group .bar button{width:22px;height:22px;border-radius:50%;background:var(--panel);border:1px solid var(--line);box-shadow:0 2px 6px rgba(0,0,0,.3);font-size:10px;padding:0;color:var(--mu)}
+.card.note .bar button:hover,.card.group .bar button:hover{background:#e0556b;border-color:#e0556b;color:#fff}
+.card.note textarea,.card.group textarea{padding-top:12px}
+.card.box{border-radius:14px}
+.card.box .body{flex-direction:column;align-items:center}
+.bico{flex:none;width:34px;height:34px;color:var(--c);display:grid;place-items:center;pointer-events:none}
+.bico svg{width:30px;height:30px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linejoin:round}
+.card.box textarea{font-weight:600;padding:0 10px;line-height:1.3;min-height:0}
+.bhint{flex:none;align-self:center;text-align:center;font-size:10.5px;color:var(--mu);padding:0 0 8px;pointer-events:none}
+/* ── Grup: başlık (not gibi) + boyanabilir içerik alanı ── */
+.card.group{--hh:72px;background:none;border:0;border-radius:0;box-shadow:var(--ring)}
+.card.group:not(.editing):not(.lift):hover{transform:none;box-shadow:var(--ring)}
+.card.group.lift{transform:none;box-shadow:var(--ring),0 18px 32px rgba(0,0,0,.28)}
+.card.group .ghead{flex:none;height:var(--hh);position:relative;z-index:1;background:linear-gradient(180deg,color-mix(in srgb,var(--c) 16%,var(--c1)),color-mix(in srgb,var(--c) 8%,var(--c2)));
+ border:1px solid var(--line);border-top:3px solid var(--c);border-radius:6px 6px 0 0;box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 2px 6px rgba(0,0,0,.25)}
+.card.group .gbody{flex:1;min-height:0;background:color-mix(in srgb,var(--gbg,var(--c)) 14%,transparent);border:1px solid color-mix(in srgb,var(--gbg,var(--c)) 45%,transparent);border-top:0;border-radius:0 0 8px 8px}
+.gdiv{position:absolute;left:0;right:0;top:calc(var(--hh) - 5px);height:10px;cursor:ns-resize;z-index:2}
+.gdiv::after{content:"";position:absolute;left:50%;top:3px;width:36px;height:4px;margin-left:-18px;border-radius:2px;background:#6b707c;opacity:0;transition:opacity .15s}
+.card.group:hover .gdiv::after,.card.group.sel .gdiv::after{opacity:.85}

@@ -1,0 +1,13 @@
+#top{height:48px;display:flex;align-items:center;gap:6px;padding:0 10px;background:var(--panel);border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap}
+#top button,#top select,#top input{font:inherit;font-size:13px;color:var(--tx);background:transparent;border:1px solid var(--line);border-radius:6px;padding:5px 10px;cursor:pointer}
+#top button:hover{border-color:var(--ac)}
+#top input{cursor:text;width:170px;font-weight:600}
+#top .sep{width:1px;height:22px;background:var(--line);margin:0 4px}
+#st{color:var(--ac);font-size:12px}
+#zl{color:var(--mu);font-size:12px;min-width:38px;text-align:right}
+#top .grow{flex:1;min-width:8px}
+#bc{display:flex;align-items:center;gap:2px}
+#top #bc button{border:0;color:var(--mu);padding:4px 8px;border-radius:6px;font-size:13px}
+#top #bc button:hover{background:var(--line);color:var(--tx)}
+#top #bc button.cur{color:var(--tx);font-weight:600}
+.bs{color:var(--mu);font-size:13px}
